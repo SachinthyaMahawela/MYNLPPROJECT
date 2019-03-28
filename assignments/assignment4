@@ -1,0 +1,1 @@
+Natural Language Tool Kit (NLTK) is a platform used for building Python programs that work with human language data for applying in statistical NLP. It contains text processing libraries such as tokenization, parsing, classification, stemming, tagging and semantic reasoning. All those libraries were using in this project at various locations.
