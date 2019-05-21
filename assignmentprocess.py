@@ -35,7 +35,7 @@ class P(QDialog):
 
         cnx = mysql.connector.connect(user='sachi', password='Abc123@#(', host='localhost', database='projectdb')
         cursor = cnx.cursor()
-        query = "SELECT subject FROM addassignment"
+        query = "SELECT DISTINCT subject FROM addassignment"
         cursor.execute(query)
 
         results = cursor.fetchall()
@@ -48,7 +48,7 @@ class P(QDialog):
         subject = self.comboBox_type.currentText()
         cnx = mysql.connector.connect(user='sachi', password='Abc123@#(', host='localhost', database='projectdb')
         cursor = cnx.cursor()
-        sql = """SELECT ass_id,description FROM addassignment WHERE subject= '%s' """ % (subject)
+        sql = """SELECT DISTINCT ass_id,description FROM addassignment WHERE subject= '%s' """ % (subject)
         cursor.execute(sql)
         re = cursor.fetchall()
         self.tableWidget.setRowCount(0)

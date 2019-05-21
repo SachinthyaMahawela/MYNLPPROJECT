@@ -9,9 +9,6 @@ from nltk.corpus import wordnet
 # store the nouns in a list
 
 # loop retireve  all the answers one by one.
-    get the first answer
-    do the tagging
-    retrive the nouns list
 
 #retrive the second file
 
@@ -36,6 +33,5 @@ for word1, word2 in product(list1, list2):
 
             initialList.append(s)
             print(str(word1) + " second word"+  str(word2))
-#insert  into checksimilalrity(doc1,doc2,word1,word2,value) values( '','','','','')
             print(s)
     print(initialList)

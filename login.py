@@ -55,5 +55,3 @@ widget = login()
 widget.show()
 sys.exit(app.exec_())
 
-# ex.show()
-# ex.exec_()

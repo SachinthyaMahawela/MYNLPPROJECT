@@ -35,7 +35,7 @@ class ms(QDialog):
 
         cnx = mysql.connector.connect(user='sachi', password='Abc123@#(', host='localhost', database='projectdb')
         cursor = cnx.cursor()
-        query = "SELECT subject FROM markingscheme"
+        query = "SELECT DISTINCT subject FROM markingscheme"
         cursor.execute(query)
 
         results = cursor.fetchall()
@@ -48,7 +48,7 @@ class ms(QDialog):
         subject = self.comboBox_type.currentText()
         cnx = mysql.connector.connect(user='sachi', password='Abc123@#(', host='localhost', database='projectdb')
         cursor = cnx.cursor()
-        sql = """SELECT mscheme_id,description FROM markingscheme WHERE subject= '%s' """ % (subject)
+        sql = """SELECT DISTINCT mscheme_id,description FROM markingscheme WHERE subject= '%s' """ % (subject)
         cursor.execute(sql)
         re = cursor.fetchall()
         self.tableWidget.setRowCount(0)
@@ -79,10 +79,11 @@ class ms(QDialog):
         count = len(words)
         print('01.The number of words of the given file:\n', count)
         print("-----------------------------------")
-
-
         stop_words = set(stopwords.words("english"))  # Stop words of the english language
         texts=[word for word in filename.lower().split() if word in stop_words]
+
+        print('02.The number of stop words of the file:\n', len(texts))
+        print("-----------------------------------")
 
         print("-----------------------------------")
         print('03.The number of stop words of the file:\n', len(texts))
@@ -112,7 +113,7 @@ class ms(QDialog):
             print(tag)
 
         # count the taging words separately..
-        print("09.Number of taging words:")
+        print("09.Number of tagging words:")
         count1 = Counter(tag for word, tag in tags)
         print(count1)
 
